@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
+import { useState, useEffect } from "react";
 
 const App = () => {
   const [search, setSearch] = useState("");
