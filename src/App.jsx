@@ -5,15 +5,16 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import searchcontact from "./components/searchcontact.json";
 
 const App = () => {
-  const [search, setSearch] = useState("");
   const [contacts, setContacts] = useState(() => {
-    const savedContacts = window.localStorage.getItem("saved-contacts");
+    const savedContacts = localStorage.getItem("contacts");
     return savedContacts ? JSON.parse(savedContacts) : searchcontact;
   });
 
   useEffect(() => {
-    window.localStorage.setItem("saved-contacts", JSON.stringify(contacts));
+    localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
+
+  const [search, setSearch] = useState("");
 
   const visibleContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(search.toLowerCase())
